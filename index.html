@@ -191,13 +191,13 @@
 					e.preventDefault();
 					const queryTerm = termEl.value;
 					const location = locationEl.value;
-					// console.log('queryTerm', queryTerm);
+					console.log('queryTerm', queryTerm);
 					
-					// searchYelp(location, queryTerm);
+					searchYelp(location, queryTerm);
 
 					// TODO: REMOVE LINE BELOW WHEN API IS WORKING SO WE CAN CALL REAL DATA, NOT THE FAKE DATA ABOVE
 					//we need to replace natalysData with response and leave .businesses assumeing the console log outputs the same format as YELP's example
-					displayBusinesses(natalysData.businesses);
+					displayBusinesses(response.businesses);
 				})
 
 				function displayBusinesses(businessArray){
@@ -229,12 +229,6 @@
 
 						resultsEl.appendChild(liEl);
 					}
-					// const title = businesses.headline.main;
-					// //pick any default image
-					// const thumbail = 'default.png';
-					// if (businesses.multimedia && businesses.multimedia.length) {
-					// 	thumbail = 'https://static01.nyt.com' + businesses.multimedia[0].url;
-					// } 
 				}
 
 				//params and headers are part of axios. It is builing the + "" + "" that we did last week
@@ -246,8 +240,7 @@
 							'location': location
 						},
 						headers: {
-							//ask about Bearer~~~~~~~~~
-							'Authorization': 'Bearer' + API_KEY
+							'Authorization': 'Bearer ' + API_KEY
 						}
 					})
 					//the response is the JSON data we are getting back
