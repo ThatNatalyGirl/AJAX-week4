@@ -60,7 +60,7 @@
 					const location = locationEl.value;
 					const prices = getCheckedValues(document.querySelectorAll('[name=price]:checked'));
 
-					searchYelp(location, queryTerm);
+					searchYelp(location, queryTerm, prices);
 				})
 
 				function getCheckedValues(checkedItems){
