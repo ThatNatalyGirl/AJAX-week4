@@ -58,7 +58,7 @@
 
 					const queryTerm = termEl.value;
 					const location = locationEl.value;
-					const prices = getCheckedValues(document.querySelctorAll('[name=price]:checked'));
+					const prices = getCheckedValues(document.querySelectorAll('[name=price]:checked'));
 
 					searchYelp(location, queryTerm);
 				})
@@ -115,7 +115,7 @@
 				}
 
 				//params and headers are part of axios. It is builing the + "" + "" that we did last week
-				function searchYelp(location, queryTerm) {
+				function searchYelp(location, queryTerm, prices) {
 					axios.get("https://circuslabs.net/proxies/yelp-fusion-proxy/", {
 						params: {
 							'_ep': '/businesses/search',
