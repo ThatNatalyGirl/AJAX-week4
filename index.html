@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Yelp Search</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="dist/css/main.css">
+ 
+		
+	</head>
+	<body>
+		
+	<form>
+		<label>Search Yelp:
+			<input type="text" name="term" id="term" value="beer"/>
+		</label>	
+		<label>
+			<input type="text" name="location" id="location" value="Atlanta, GA"/>
+		</label>	
+		<br/>
+		Price Level:
+		<label>
+			<input type="checkbox" name="price" value="1"/> $
+		</label>
+		<label>
+			<input type="checkbox" name="price" value="2"/> $$
+		</label>
+		<a id="search" href="#">Search</a>
+	</form>
+
+	<hr/>
+	<ul id="results"></ul>
+
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script type="text/javascript">
+			(function(){
+				const API_KEY = "Tk1_Bj-bjA5Qnwz9mdVs-W7xlNn8nO-1d9V460_k6cEV4LT2pSWB73p3Ui4l2XUX2prRQA14dtU8C7zPOxf0IaZHPd13cxClBg5qmPX_El5TpsCCLnSo_DB0YmPiWnYx";
+
+				const TermEl = document.getElementById('term');
+				const locationEl = document.getElementById('location');
+				const searchBtn = document.getElementById('search');
+				const resultsEl = document.getElementById('results');
+
+
+				searchBtn.addEventListener("click", function(e) {
+					e.preventDefault();
+					const queryTerm = termEl.value;
+					const location = locationEl.value;
+					console.log('queryTerm', queryTerm);
+				})
+
+				function displayArticle(article){
+					// const title = article.headline.main;
+					// //pick any default image
+					// const thumbail = 'default.png';
+					// if (article.multimedia && article.multimedia.length) {
+					// 	thumbail = 'https://static01.nyt.com' + article.multimedia[0].url;
+					// } 
+
+
+					function searchYelp(location, queryTerm) {
+						axios.get("https://api.yelp.com/v3/businesses/search", {
+							params: {
+								'term': queryTerm,
+								'location': location
+							},
+							headers: {
+								'Authorization': 'Bearer' + API_KEY
+							}
+						})
+						.then(function(response){
+							console.log('here is the get response data for key:', response.data, response);
+						displayArticles(response.data.response.docs);
+						});
+					}
+
+
+
+		</script>
+		<script src="dist/js/main.js"></script>
+
+	</body>
+</html>
+
+

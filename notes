@@ -1,0 +1,12 @@
+yelp/developers
+yelp fusion
+documentation
+
+You can go into the Business Endpoints and then business search and see the different parameters we are using
+
+if you scroll down you can see the response body that comes out as an array of objects and what all do we have available to work with we can take that information and decide how we want to display that to the users.
+
+We can see the region (which we won't be doing this week) - but it can orient your map etc.
+
+as you continue to scroll down, there is documentation that explains what each object means etc.
+
