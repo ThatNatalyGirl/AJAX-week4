@@ -8,178 +8,41 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<link rel="stylesheet" href="dist/css/main.css">
-		
+		<link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+
 	</head>
 	<body>
-		
-	<form>
-		<label>Search Yelp:
-			<input type="text" name="term" id="term" value="beer"/>
-		</label>	
-		<label>
-			<input type="text" name="location" id="location" value="Atlanta, GA"/>
-		</label>	
-		<br/>
-		Price Level:
-		<label>
-			<input type="checkbox" name="price" value="1"/> $
-		</label>
-		<label>
-			<input type="checkbox" name="price" value="2"/> $$
-		</label>
-		<a id="search" href="#">Search</a>
-	</form>
+		<header>
+			<h1>Yelp Search</h1>
+		</header>
+		<form>
+			<label>Search Yelp:
+				<input type="text" name="term" id="term" value="beer"/>
+			</label>	
+			<label>
+				<input type="text" name="location" id="location" value="Atlanta, GA"/>
+			</label>
+			<div>	
+				<br/>
+			</div>
+			Price Level:
+			<label>
+				<input type="checkbox" name="price" value="1"/> $
+			</label>
+			<label>
+				<input type="checkbox" name="price" value="2"/> $$
+			</label>
+			<a id="search" href="#">Search</a>
+		</form>
 
-	<hr/>
-	<ul id="results"></ul>
+		<hr/>
+
+		<ul id="results"></ul>
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script type="text/javascript">
 			(function(){
 				const API_KEY = "Tk1_Bj-bjA5Qnwz9mdVs-W7xlNn8nO-1d9V460_k6cEV4LT2pSWB73p3Ui4l2XUX2prRQA14dtU8C7zPOxf0IaZHPd13cxClBg5qmPX_El5TpsCCLnSo_DB0YmPiWnYx";
-				const natalysData = {
-				  "total": 8228,
-				  "businesses": [
-					{
-					  "rating": 4,
-					  "price": "$",
-					  "phone": "+14152520800",
-					  "id": "E8RJkjfdcwgtyoPMjQ_Olg",
-					  "alias": "four-barrel-coffee-san-francisco",
-					  "is_closed": false,
-					  "categories": [
-						{
-						  "alias": "coffee",
-						  "title": "Coffee & Tea"
-						}
-					  ],
-					  "review_count": 1738,
-					  "name": "Four Barrel Coffee",
-					  "url": "https://www.yelp.com/biz/four-barrel-coffee-san-francisco",
-					  "coordinates": {
-						"latitude": 37.7670169511878,
-						"longitude": -122.42184275
-					  },
-					  "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/MmgtASP3l_t4tPCL1iAsCg/o.jpg",
-					  "location": {
-						"city": "San Francisco",
-						"country": "US",
-						"address2": "",
-						"address3": "",
-						"state": "CA",
-						"address1": "375 Valencia St",
-						"zip_code": "94103"
-					  },
-					  "distance": 1604.23,
-					  "transactions": ["pickup", "delivery"]
-					},
-					{
-					  "rating": 4,
-					  "price": "$",
-					  "phone": "+14152520800",
-					  "id": "E8RJkjfdcwgtyoPMjQ_Olg",
-					  "alias": "four-barrel-coffee-san-francisco",
-					  "is_closed": false,
-					  "categories": [
-						{
-						  "alias": "coffee",
-						  "title": "Coffee & Tea"
-						}
-					  ],
-					  "review_count": 1738,
-					  "name": "Four Barrel Coffee",
-					  "url": "https://www.yelp.com/biz/four-barrel-coffee-san-francisco",
-					  "coordinates": {
-						"latitude": 37.7670169511878,
-						"longitude": -122.42184275
-					  },
-					  "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/MmgtASP3l_t4tPCL1iAsCg/o.jpg",
-					  "location": {
-						"city": "San Francisco",
-						"country": "US",
-						"address2": "",
-						"address3": "",
-						"state": "CA",
-						"address1": "375 Valencia St",
-						"zip_code": "94103"
-					  },
-					  "distance": 1604.23,
-					  "transactions": ["pickup", "delivery"]
-					},
-					{
-					  "rating": 4,
-					  "price": "$",
-					  "phone": "+14152520800",
-					  "id": "E8RJkjfdcwgtyoPMjQ_Olg",
-					  "alias": "four-barrel-coffee-san-francisco",
-					  "is_closed": false,
-					  "categories": [
-						{
-						  "alias": "coffee",
-						  "title": "Coffee & Tea"
-						}
-					  ],
-					  "review_count": 1738,
-					  "name": "Four Barrel Coffee",
-					  "url": "https://www.yelp.com/biz/four-barrel-coffee-san-francisco",
-					  "coordinates": {
-						"latitude": 37.7670169511878,
-						"longitude": -122.42184275
-					  },
-					  "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/MmgtASP3l_t4tPCL1iAsCg/o.jpg",
-					  "location": {
-						"city": "San Francisco",
-						"country": "US",
-						"address2": "",
-						"address3": "",
-						"state": "CA",
-						"address1": "375 Valencia St",
-						"zip_code": "94103"
-					  },
-					  "distance": 1604.23,
-					  "transactions": ["pickup", "delivery"]
-					},
-					{
-					  "rating": 4,
-					  "price": "$",
-					  "phone": "+14152520800",
-					  "id": "E8RJkjfdcwgtyoPMjQ_Olg",
-					  "alias": "four-barrel-coffee-san-francisco",
-					  "is_closed": false,
-					  "categories": [
-						{
-						  "alias": "coffee",
-						  "title": "Coffee & Tea"
-						}
-					  ],
-					  "review_count": 1738,
-					  "name": "Four Barrel Coffee",
-					  "url": "https://www.yelp.com/biz/four-barrel-coffee-san-francisco",
-					  "coordinates": {
-						"latitude": 37.7670169511878,
-						"longitude": -122.42184275
-					  },
-					  "image_url": "http://s3-media2.fl.yelpcdn.com/bphoto/MmgtASP3l_t4tPCL1iAsCg/o.jpg",
-					  "location": {
-						"city": "San Francisco",
-						"country": "US",
-						"address2": "",
-						"address3": "",
-						"state": "CA",
-						"address1": "375 Valencia St",
-						"zip_code": "94103"
-					  },
-					  "distance": 1604.23,
-					  "transactions": ["pickup", "delivery"]
-					},
-				  ],
-				  "region": {
-					"center": {
-					  "latitude": 37.767413217936834,
-					  "longitude": -122.42820739746094
-					}
-				  }
-				};
 
 				const termEl = document.getElementById('term');
 				const locationEl = document.getElementById('location');
@@ -189,19 +52,17 @@
 
 				searchBtn.addEventListener("click", function(e) {
 					e.preventDefault();
+
 					const queryTerm = termEl.value;
 					const location = locationEl.value;
-					console.log('queryTerm', queryTerm);
-					
+
 					searchYelp(location, queryTerm);
 
-					// TODO: REMOVE LINE BELOW WHEN API IS WORKING SO WE CAN CALL REAL DATA, NOT THE FAKE DATA ABOVE
-					//we need to replace natalysData with response and leave .businesses assumeing the console log outputs the same format as YELP's example
-					displayBusinesses(response.businesses);
 				})
 
 				function displayBusinesses(businessArray){
 					console.log(businessArray);
+					// resultsEl.removeChild(liEl);
 					for (var i = 0; i <= businessArray.length - 1; i++) {
 						console.log(businessArray[i]);
 
@@ -246,7 +107,7 @@
 					//the response is the JSON data we are getting back
 					.then(function(response){
 						console.log('here is the get response data for key:', response.data, response);
-						displayBusinesses(response.data);
+						displayBusinesses(response.data.businesses);
 					});
 				}
 

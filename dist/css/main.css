@@ -73,85 +73,83 @@ table {
 }
 
 body {
-	background: #ccc;
+	background: #443f3c;
+	font-family: 'Bree Serif', serif;
+}
+
+header {
+	background: #696864;
+	font-size: 2.5em;
+	padding: 20px 2%;
+	text-align: center;
+}
+
+header h1 {
+	color: #c2b602;
+	text-shadow: 2px 2px 2px #026a75;
 }
 
 /* 2. Content ================================= */
-.content {
-	position: relative;
-	font-family: sans-serif;
-	width: 90%;
-	max-width: 500px;
-	margin: 140px auto;
-	padding: 30px 20px 30px 30px;
+form {
+	margin: 30px 5%;
+	font-size: 25px;
+	color: #46bebc;
 }
 
-.content .foreground {
-	position: relative;
-	z-index: 2;
-	transform: translateZ(100px);
+form label {
+	margin-bottom: 40px;
+	padding: 2%;
 }
 
-.content .background {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	left: 0;
-	top: 0;
-	background: white;
-	z-index: 1;
-	transition: 0.2s;
-	transform: translateX(20px) perspective(600px) rotateY(15deg);
+form label input {
+	font-size: 25px;
+	background: #c2b602;
 }
 
-.content:hover .background {
-	transform: translateX(-30px) perspective(600px) rotateY(-15deg);
+form br {
+	height: 30px;
 }
 
-.content .logo {
-	position: absolute;
-	top: -30px;
-	width: 60px;
-	z-index: 2;
-	transform: translateZ(100px);
-	transition: 0.3s;
+form a {
+	text-decoration: none;
+	background: #026a75;
+	font-size: 20px;
+	padding: 3px 5px;
+	border-radius: 10px;
 }
 
-.content .logo:hover {
-	transform: rotate(-0.4turn);
+form a:hover {
+	background: #46bebc;
 }
 
-.content h1 {
-	font-weight: 700;
-	font-size: 22pt;
-	margin: 15px 0;
+li {
+	display: flex;
+	flex-direction: column;
+	margin: 35px 8%;
+	width: auto;
 }
 
-.content p {
-	color: #777;
-	line-height: 140%;
+li img {
+	width: 300px;
+	height: 200px;
 }
 
-.content p.github {
-	font-size: 0.8em;
+li a {
+	text-decoration: none;
+	color: #c2b602;
+	font-size: 30px;
+	padding: 3px 5px;
+	border-radius: 10px;
+	text-shadow: 2px 1px 1px #026a75;
 }
 
-.content p.github a {
-	opacity: 0.2;
-	transition: 0.3s;
+li a:hover {
+	color: #46bebc;
 }
 
-.content p.github a:hover {
-	opacity: 1;
-	color: red;
-}
-
-.content code {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	font-size: 0.8em;
-	opacity: 0.2;
+li p {
+	font-size: 20px;
+	color: #46bebc;
 }
 
 /*# sourceMappingURL=main.css.map */
